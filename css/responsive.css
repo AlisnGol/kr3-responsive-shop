@@ -281,3 +281,27 @@ textarea {
   align-items: center;
   justify-content: center;
 }
+
+/* Поля страницы заявки: одна колонка на телефоне */
+.order-form--page .order-form__group {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.order-form--page .order-form__field {
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+/* Длинные поля занимают всю строку */
+.order-form--page .order-form__field--wide {
+  grid-column: 1 / -1;
+}
+
+/* Две колонки, когда для полей достаточно места */
+@media (min-width: 768px) {
+  .order-form--page .order-form__group {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
